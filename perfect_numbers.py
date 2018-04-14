@@ -13,19 +13,12 @@ def classify(num):
 
 def listInRange(start, end, aliquot):
 
-    if aliquot == 'Abundant':
-        aliStr = 'abundant'
-    elif aliquot == 'perfect':
-        aliStr = 'perfect'
-    else:
-        aliStr = 'deficient'
-
     aliList = []
 
-    for i in range(start, end):
-        if classify(i) == aliStr:
+    for i in range(start, end + 1):
+        if classify(i) == aliquot:
             aliList.append(i)
 
     if aliList == []:
-        return 'There are no ' + ' aliStr ' + ' numbers in this range'
+        return 'There are no ' + str(aliquot) + ' numbers in this range'
     return ', '.join(map(str, aliList))

@@ -19,20 +19,20 @@
 
 <div>
   <p>Input a start number and an end number to return a list of <div class="form-group">
-    <select class="form-control" action="/aliKind" name="aliquot">
-      <option value = 1>Abundant</option>
-      <option value = 2>Perfect</option>
-      <option value = 3>Deficient</option>
-    </select>
   </div> numbers within that range</p>
   <form action="/aliRange" method="POST">
     <div class="form-group">
+      <select class="form-control" action="/aliRange" name="aliquot" method="POST">
+        <option value = 'abundant'>Abundant</option>
+        <option value = 'perfect'>Perfect</option>
+        <option value = 'deficient'>Deficient</option>
+      </select>
       Start: <input type="text" name="start" value="1">
       End: <input type="text" name="end" value="1">
     </div>
     <input class="btn btn-primary" type="submit" value="submitRange">
   </form>
-  The {{ aliStr }} numbers between {{ start }} and {{ end }} are:
+  The {{ aliquot }} numbers between {{ start }} and {{ end }} are:
   {{ listInRange }}
 </div>
 

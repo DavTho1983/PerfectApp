@@ -7,7 +7,7 @@ app.config['SECRET_KEY'] = 'MySecretKey'
 num = 1
 start = 1
 end = 1
-aliquot = 'perfect'
+aliquot = 1
 Classify = classify(num)
 ListInRange = listInRange(start, end, aliquot)
 
@@ -28,25 +28,20 @@ def send():
         except:
             return render_template('index.html', num = num, classify = 'not an integer')
 
-@app.route('/aliRange', methods=['GET', 'POST'])
-def aliKind():
-
-    aliquot = request.form.get['aliquot']
-    return aliquot
-
+@app.route('/aliRange', methods=['POST'])
 def aliRange():
 
     if request.method == 'POST':
 
         start = request.form['start']
         end = request.form['end']
-        aliquot = request.form.get['aliquot']
-    
+        aliquot = request.form['aliquot']
+
         try:
             ListInRange = listInRange(int(start), int(end), aliquot)
-            return render_template('index.html', start = start, end = end, aliquot = aliquot, listInRange = ListInRange)
+            return render_template('index.html', num = num, classify = Classify, start = start, end = end, aliquot = aliquot, listInRange = ListInRange)
         except:
-            return render_template('index.html', start = start, end = end, aliquot = aliquot, listInRange = 'are not integers')
+            return render_template('index.html', num = num, classify = Classify, start = start, end = end, aliquot = aliquot, listInRange = 'not all integers')
 
 
 if __name__ == '__main__':

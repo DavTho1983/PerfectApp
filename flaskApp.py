@@ -7,14 +7,14 @@ app.config['SECRET_KEY'] = 'MySecretKey'
 num = 1
 start = 1
 end = 1
-aliquot = 1
+aliquot = 'abundant'
 Classify = classify(num)
 ListInRange = listInRange(start, end, aliquot)
 
 
 @app.route('/')
 def index():
-    return render_template('index.html', num = num, start = start, end = end, aliquot = 1, classify = Classify, listInRange = ListInRange)
+    return render_template('index.html', num = num, start = start, end = end, aliquot = aliquot, classify = Classify, listInRange = ListInRange)
 
 @app.route('/send', methods=['POST'])
 def send():
